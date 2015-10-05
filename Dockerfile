@@ -146,7 +146,7 @@ EXPOSE 22
 
 
 ################### Expose volumes
-VOLUME ["/opt/hadoop/logs", "/var/lib/hadoop", "/root/shared"]
+VOLUME ["/opt/hadoop", "/var/lib/hadoop", "/root/shared"]
 
 
 ################### Entry point
