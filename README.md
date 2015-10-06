@@ -28,11 +28,8 @@ If you want to execute a hadoop example, for example:
 **Where "username", put your username :)**
 ```
 mkdir /home/username/hadoop
-mkdir /home/username/hadoop/installation
-mkdir /home/username/hadoop/data
-mkdir /home/username/hadoop/shared
 docker run --name my-new-hadoop-2.7.1 \
-  -v /home/username/hadoop/installation:/opt/hadoop \
+  -v /home/username/hadoop/logs:/opt/hadoop/logs \
   -v /home/username/hadoop/data:/var/lib/hadoop \
   -v /home/username/hadoop/shared:/root/shared \
   -p 50070:50070 \
@@ -54,10 +51,9 @@ docker run --name my-new-hadoop-2.7.1 \
 After this, you will be inside of the hadoop docker container terminal.
 
 Basically:
-- Hadoop installation folder : **/opt/hadoop** but you can access throw your mapped local folder **/home/username/hadoop/installation**
-- Hadoop tmp folder (data folder) : **/var/lib/hadoop** but you can access throw your mapped local folder **/home/username/hadoop/data**
-- Hadoop config folder : **/opt/hadoop/etc/hadoop** but you can access throw your mapped local folder **/home/username/hadoop/installation/etc/hadoop**
-- Usesful folder to share files: **/root/shared mapped** to your local folder **/home/username/hadoop/shared**
+- Hadoop tmp folder (data folder) is in **/var/lib/hadoop** but you can access throw your mapped local folder **/home/username/hadoop/data**
+- Hadoop logs folder is in **/opt/hadoop/logs** but you can access throw your mapped local folder **/home/username/hadoop/logs**
+- Useful folder to share files: **/root/shared** mapped to your local folder **/home/username/hadoop/shared**
 - There is a big list of ports exposed, so you can map only ports that you are going to use or you can expose all replacing **-p local_port:exposed_port** by **-P** You can check the full list of ports in the [Dockfile](https://github.com/angelcervera/docker-hadoop/blob/master/Dockerfile)
 
 ## For curious people
